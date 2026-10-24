@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TinySolitaire (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TinySolitaire (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

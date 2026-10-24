@@ -1,0 +1,61 @@
+<Page
+    x:Class="TinySolitaire.Views.FlyoutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+    <Grid>
+        <Grid x:Name="GameLayout" Padding="16,14,16,8" RowSpacing="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Canvas x:Name="TopPiles" HorizontalAlignment="Center" Width="372" Height="72" />
+            <ScrollViewer x:Name="TableauScroller" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                HorizontalScrollMode="Disabled" ZoomMode="Disabled">
+                <Grid x:Name="TableauGrid" HorizontalAlignment="Center" Width="372" ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition /><ColumnDefinition /><ColumnDefinition /><ColumnDefinition />
+                        <ColumnDefinition /><ColumnDefinition /><ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollViewer>
+            <StackPanel Grid.Row="2" Spacing="10">
+                <InfoBar x:Name="ErrorBar" AutomationProperties.AutomationId="ErrorBar" IsOpen="False" Severity="Warning" IsClosable="True" />
+                <CommandBar HorizontalAlignment="Center" Background="Transparent" DefaultLabelPosition="Collapsed" IsOpen="False" IsDynamicOverflowEnabled="True">
+                    <AppBarButton x:Name="NewButton" AutomationProperties.AutomationId="NewGame" Label="New" Icon="Add" Click="New_Click" ToolTipService.ToolTip="New deal (Ctrl+N)" />
+                    <AppBarButton x:Name="UndoButton" AutomationProperties.AutomationId="UndoMove" Label="Undo" Icon="Undo" Click="Undo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)" />
+                    <AppBarButton x:Name="HintButton" AutomationProperties.AutomationId="ShowHint" Label="Hint" Icon="Help" Click="Hint_Click" ToolTipService.ToolTip="Show a hint (H)" />
+                    <AppBarButton AutomationProperties.AutomationId="OpenSettings" Label="Settings" Icon="Setting" Click="Settings_Click" ToolTipService.ToolTip="Settings" />
+                    <AppBarButton AutomationProperties.AutomationId="HideGame" AutomationProperties.Name="Hide to tray" Label="Hide to tray" Icon="Cancel" Click="Hide_Click" ToolTipService.ToolTip="Hide to tray (Esc)" />
+                    <CommandBar.SecondaryCommands>
+                        <AppBarButton AutomationProperties.AutomationId="RestartDeal" Label="Restart deal" Icon="Refresh" Click="Restart_Click" />
+                        <AppBarButton x:Name="FinishButton" AutomationProperties.AutomationId="AutoFinish" Label="Auto-finish" Icon="Accept" Click="Finish_Click" />
+                        <AppBarButton AutomationProperties.AutomationId="HowToPlay" Label="How to play" Icon="Help" Click="Help_Click" />
+                    </CommandBar.SecondaryCommands>
+                </CommandBar>
+            </StackPanel>
+            <Grid.KeyboardAccelerators>
+                <KeyboardAccelerator Key="N" Modifiers="Control" Invoked="New_Invoked" />
+                <KeyboardAccelerator Key="Z" Modifiers="Control" Invoked="Undo_Invoked" />
+                <KeyboardAccelerator Key="H" Invoked="Hint_Invoked" />
+                <KeyboardAccelerator Key="D" Invoked="Draw_Invoked" />
+            </Grid.KeyboardAccelerators>
+        </Grid>
+        <Canvas x:Name="AnimationLayer" IsHitTestVisible="False" Canvas.ZIndex="9" />
+        <Canvas x:Name="DragLayer" IsHitTestVisible="False" Canvas.ZIndex="10" />
+        <Grid x:Name="VictoryLayer" IsHitTestVisible="False" Canvas.ZIndex="20">
+            <Border x:Name="VictoryBanner" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Padding="24,14" CornerRadius="12" BorderThickness="1"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+                <TextBlock x:Name="VictoryMessage" AutomationProperties.AutomationId="VictoryMessage"
+                    AutomationProperties.LiveSetting="Polite" Style="{StaticResource SubtitleTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+            </Border>
+        </Grid>
+        <TeachingTip x:Name="HintTip" Target="{x:Bind HintButton, Mode=OneTime}" IsLightDismissEnabled="True" PreferredPlacement="Top">
+            <TextBlock x:Name="HintMessage" AutomationProperties.AutomationId="HintMessage" TextWrapping="Wrap"
+                AutomationProperties.LiveSetting="Polite" />
+        </TeachingTip>
+    </Grid>
+</Page>
