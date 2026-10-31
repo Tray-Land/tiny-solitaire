@@ -37,7 +37,7 @@ Build columns down in alternating colors; only kings fill empty columns. Foundat
 
 Requires **Windows 10 2004 or later, or Windows 11**, on **x64 or ARM64**.
 
-There is no published Store listing or release download yet. Build and run from source below. For sideloading a signed release MSIX, trust its signing certificate only after verifying its publisher, then open the MSIX in App Installer.
+Download [TinySolitaire.appinstaller](https://github.com/Tray-Land/tiny-solitaire/releases/latest/download/TinySolitaire.appinstaller) and open it. Windows installs the right version for your PC and keeps it updated. There is no Store listing yet, or you can build from source below.
 
 ## Privacy and footprint
 
@@ -71,6 +71,8 @@ pwsh -File .\scripts\ui-tests.ps1
 ```
 
 Start a fresh deal before the full UI suite. The script changes game progress and preferences, exercises input on the local desktop, and writes screenshots and structured results under `artifacts\ui-tests`. Use `-TestFilter 'emoji|green'` for focused checks or `-AppPid <id>` to reuse a running instance.
+
+To publish a release, bump `Identity/@Version` in `Package.appxmanifest`, push, then run `.\build-msix-for-gh.ps1`. It builds a signed x64 + ARM64 `.msixbundle` plus the `.appinstaller` feed and creates a draft GitHub release. Publish the draft without changing its tag, then run `.\build-msix-for-gh.ps1 -VerifyPublished`. `-SkipRelease -NoSign` checks the build without signing or publishing.
 
 For a release build and launch:
 
