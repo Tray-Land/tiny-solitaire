@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10" IgnorableNamespaces="uap uap10 rescap systemai uap5" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5">
-  <Identity Name="5C68D0F5-CF2A-442C-8D21-ED13E6A4857D" Publisher="CN=Joseph Finney, O=Joseph Finney, L=Milwaukee, S=Wisconsin, C=US, PostalCode=53212" Version="1.0.0.0" />
+  <Identity Name="5C68D0F5-CF2A-442C-8D21-ED13E6A4857D" Publisher="CN=Joseph Finney, O=Joseph Finney, L=Milwaukee, S=Wisconsin, C=US, PostalCode=53212" Version="1.0.1.0" />
   <Properties>
     <DisplayName>Tiny Solitaire</DisplayName>
     <PublisherDisplayName>JoeFinApps</PublisherDisplayName>
