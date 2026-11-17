@@ -35,6 +35,8 @@ Build columns down in alternating colors; only kings fill empty columns. Foundat
 
 ## Install
 
+[<img src="docs/MSIX.svg" alt="Install TinySolitaire (MSIX)" width="212">](https://github.com/Tray-Land/tiny-solitaire/releases/latest/download/TinySolitaire.appinstaller)
+
 Requires **Windows 10 2004 or later, or Windows 11**, on **x64 or ARM64**.
 
 Download [TinySolitaire.appinstaller](https://github.com/Tray-Land/tiny-solitaire/releases/latest/download/TinySolitaire.appinstaller) and open it. Windows installs the right version for your PC and keeps it updated. There is no Store listing yet, or you can build from source below.
